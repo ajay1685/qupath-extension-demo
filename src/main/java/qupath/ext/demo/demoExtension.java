@@ -16,17 +16,13 @@
 
 package qupath.ext.demo;
 
-import org.controlsfx.control.action.Action;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import qupath.ext.demo.commands.DemoCommands;
 import qupath.lib.common.Version;
-import qupath.lib.gui.ActionTools;
 import qupath.lib.gui.QuPathGUI;
 import qupath.lib.gui.extensions.GitHubProject;
 import qupath.lib.gui.extensions.QuPathExtension;
-import qupath.lib.gui.tools.GuiTools;
-import java.io.File;
 
 import static qupath.lib.gui.ActionTools.getAnnotatedActions;
 
@@ -41,8 +37,6 @@ import static qupath.lib.gui.ActionTools.getAnnotatedActions;
 public class demoExtension implements QuPathExtension, GitHubProject {
 
 	private final static Logger logger = LoggerFactory.getLogger(demoExtension.class);
-
-
 
 	@Override
 	public void installExtension(QuPathGUI qupath) {

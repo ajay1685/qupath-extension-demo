@@ -23,16 +23,15 @@ public class DemoCommands {
         actionDemo = ActionTools.actionBuilder("Open directory",
                         e -> {
                             // Try to reveal directory in Finder/Windows Explorer etc.
-                            File dir = new File(String.valueOf(QuPathGUI.getExtensionDirectory()));
-                            if (!dir.exists()) {
-                                dir.mkdir();
-                                logger.info("test logger");
+                            File dir = new File(String.valueOf(qupath.getExtensionDirectory()));
+                            if (dir.exists()) {
+                                GuiTools.openFile(dir);
                             }
-                            GuiTools.openFile(dir);
+                            logger.info("Demo extension log command one");
                         }
                 )
                 .disabled(false)
-                .longText("Open the script directory outside QuPath.")
+                .longText("Open the extension directory outside QuPath.")
                 .build();
     }
 }
