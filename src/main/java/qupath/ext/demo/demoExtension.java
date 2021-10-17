@@ -42,38 +42,11 @@ public class demoExtension implements QuPathExtension, GitHubProject {
 
 	private final static Logger logger = LoggerFactory.getLogger(demoExtension.class);
 
-	/**
-	 * Demo Commands
-	 */
-	@SuppressWarnings("javadoc")
-	public static class DemoCommand {
-		@ActionTools.ActionMenu("Demo>Command>")
-		@ActionTools.ActionDescription("Demo command description")
-		public final Action actionDemo;
 
-		public DemoCommand(QuPathGUI qupath) {
-			actionDemo = ActionTools.actionBuilder("Open directory",
-							e -> {
-								// Open a directory in Finder/Windows Explorer.
-								File dir = new File("C:\\Apps");
-								if (!dir.exists()) {
-									dir.mkdir();
-									logger.debug(qupath.toString());
-								}
-								GuiTools.openFile(dir);
-							}
-					)
-					.disabled(false)
-					.longText("Open the script directory outside QuPath.")
-					.build();
-		}
-	}
 
 	@Override
 	public void installExtension(QuPathGUI qupath) {
-		// Does nothing
-		logger.debug("Installing extension");
-		qupath.installActions(getAnnotatedActions(new DemoCommand(qupath)));
+		logger.info("Installing demo extension");
 		qupath.installActions(getAnnotatedActions(new DemoCommands(qupath)));
 	}
 
