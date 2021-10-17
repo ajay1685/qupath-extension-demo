@@ -15,6 +15,7 @@
  */
 
 package qupath.ext.demo;
+
 import org.controlsfx.control.action.Action;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,6 @@ import qupath.lib.gui.QuPathGUI;
 import qupath.lib.gui.extensions.GitHubProject;
 import qupath.lib.gui.extensions.QuPathExtension;
 import qupath.lib.gui.tools.GuiTools;
-
 import java.io.File;
 
 import static qupath.lib.gui.ActionTools.getAnnotatedActions;
