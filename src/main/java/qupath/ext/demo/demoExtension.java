@@ -22,6 +22,7 @@ import qupath.ext.demo.commands.DemoCommands;
 import qupath.lib.common.Version;
 import qupath.lib.gui.ActionTools;
 import qupath.lib.gui.QuPathGUI;
+import qupath.lib.gui.extensions.GitHubProject;
 import qupath.lib.gui.extensions.QuPathExtension;
 import qupath.lib.gui.tools.GuiTools;
 
@@ -37,28 +38,27 @@ import static qupath.lib.gui.ActionTools.getAnnotatedActions;
  * Based on Pete's StarDist extension
  * @author Ajay Zalavadia
  */
-public class demoExtension implements QuPathExtension {
+public class demoExtension implements QuPathExtension, GitHubProject {
 
-	private final static Logger logger = LoggerFactory.getLogger( demoExtension.class);
+	private final static Logger logger = LoggerFactory.getLogger(demoExtension.class);
 
 	/**
 	 * Demo Commands
 	 */
 	@SuppressWarnings("javadoc")
 	public static class DemoCommand {
-		@ActionTools.ActionMenu("Demo>DemoCommand>")
+		@ActionTools.ActionMenu("Demo>Command>")
 		@ActionTools.ActionDescription("Demo command description")
 		public final Action actionDemo;
 
 		public DemoCommand(QuPathGUI qupath) {
 			actionDemo = ActionTools.actionBuilder("Open directory",
 							e -> {
-								// Try to reveal directory in Finder/Windows Explorer etc.
+								// Open a directory in Finder/Windows Explorer.
 								File dir = new File("C:\\Apps");
 								if (!dir.exists()) {
 									dir.mkdir();
 									logger.debug(qupath.toString());
-
 								}
 								GuiTools.openFile(dir);
 							}
@@ -73,7 +73,7 @@ public class demoExtension implements QuPathExtension {
 	public void installExtension(QuPathGUI qupath) {
 		// Does nothing
 		logger.debug("Installing extension");
-		//qupath.installActions(getAnnotatedActions(new DemoCommand(qupath)));
+		qupath.installActions(getAnnotatedActions(new DemoCommand(qupath)));
 		qupath.installActions(getAnnotatedActions(new DemoCommands(qupath)));
 	}
 
@@ -90,6 +90,11 @@ public class demoExtension implements QuPathExtension {
 	@Override
 	public Version getQuPathVersion() {
 		return Version.parse("0.3.0");
+	}
+
+	@Override
+	public GitHubRepo getRepository() {
+		return GitHubRepo.create(getName(), "ajay1685", "qupath-extension-demo");
 	}
 
 }

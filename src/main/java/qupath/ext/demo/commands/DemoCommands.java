@@ -17,7 +17,7 @@ import java.io.File;
 @SuppressWarnings("javadoc")
 public class DemoCommands {
     Logger logger = LoggerFactory.getLogger(DemoCommands.class);
-    @ActionTools.ActionMenu("Demo>DemoCommand-1>")
+    @ActionTools.ActionMenu("Demo>Command-1>")
     @ActionTools.ActionDescription("Demo command-1 description")
     public final Action actionDemo;
 
