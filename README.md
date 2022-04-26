@@ -2,6 +2,8 @@
 
 This ia demo extension for [QuPath](http://qupath.github.io)!
 
+The goal of this project is to build a demo extension with a few example that demonstrate basic functionality. This repository may help users like me who have limited expertise with Java to be able to learn from example. 
+
 ## Installing
 
 To install the demo extension, drag `qupath-extension-demo-[version].jar` file from `Build\libs` directory onto the main QuPath window.
