@@ -1,8 +1,8 @@
 # QuPath extension demo
 
-This ia demo extension for [QuPath](http://qupath.github.io)!
+This is a demo extension for [QuPath](http://qupath.github.io)!
 
-The goal of this project is to build a demo extension with a few example that demonstrate basic functionality. This repository may help users like me who have limited expertise with Java to be able to learn from example. 
+The goal of this project is to build a demo extension with a few basic example of functions, commands, guis, tables and charts in QuPath. This repository may help those who have limited expertise with Java to be able to learn from example. 
 
 ## Installing
 
